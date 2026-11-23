@@ -1,0 +1,39 @@
+# Safar Hazara: API list
+
+Frontend backend se in addresses (endpoints) par baat karega. Jawab JSON format mein aayega.
+
+## Auth
+| Method | Address | Kaam | Kaun |
+|---|---|---|---|
+| POST | /auth/register | Naya account banana | Sab |
+| POST | /auth/login | Login karke token lena | Sab |
+| GET | /auth/me | Apni maloomat dekhna | Login user |
+
+## Destinations
+| Method | Address | Kaam | Kaun |
+|---|---|---|---|
+| GET | /destinations | Sab destinations ki list | Sab |
+| GET | /destinations/{slug} | Ek destination ki detail | Sab |
+| POST | /destinations | Naya destination add karna | Admin |
+| PUT | /destinations/{id} | Destination edit karna | Admin |
+| DELETE | /destinations/{id} | Destination hatana | Admin |
+
+## Hotels
+| Method | Address | Kaam | Kaun |
+|---|---|---|---|
+| GET | /hotels | Hotels ki list (destination_id se filter ho sakti hai) | Sab |
+| GET | /hotels/{id} | Ek hotel ki detail | Sab |
+| POST | /hotels | Naya hotel add karna | Admin |
+| PUT | /hotels/{id} | Hotel edit karna | Admin |
+| DELETE | /hotels/{id} | Hotel hatana | Admin |
+
+## Trip list (hafta 4)
+| Method | Address | Kaam | Kaun |
+|---|---|---|---|
+| GET | /my-trip | Meri saved jagahein | Login user |
+| POST | /my-trip/{destination_id} | Jagah trip mein add karna | Login user |
+| DELETE | /my-trip/{destination_id} | Jagah trip se hatana | Login user |
+
+## Qaide
+- Admin wale addresses par backend role check karega. Tourist ko 403 milega.
+- Login ke baad milne wala token har request ke saath jayega.
