@@ -16,7 +16,7 @@
 
 ## Could (bonus)
 - Favorites
-- Hotels ko side-by-side compare karna
+- Hotels ko side-by-side compare karna  =========+++=+++
 
 ## Won't (abhi nahi)
 - Online booking aur payments
