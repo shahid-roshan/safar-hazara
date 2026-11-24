@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safar Hazara</title>
+</head>
+<body>
+  <h1>Safar Hazara</h1>
+  <p>Hazara aur KPK ki jagahein, hotels aur map, ek jagah.</p>
+    <h2>Destinations</h2>
+  <div id="destinations"></div>
+    <script>
+    async function loadDestinations() {
+      const response = await fetch("http://127.0.0.1:8000/destinations");
+      const destinations = await response.json();
+      const box = document.getElementById("destinations");
+
+      for (const d of destinations) {
+        const card = document.createElement("div");
+        card.textContent = d.name + ": " + d.description;
+        box.appendChild(card);
+      }
+    }
+
+    loadDestinations();
+  </script>
+</body>
+</html>
