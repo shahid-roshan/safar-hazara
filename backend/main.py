@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -41,3 +41,10 @@ def home():
 @app.get("/destinations", response_model=list[DestinationOut])
 def list_destinations(db: Session = Depends(get_db)):
     return db.scalars(select(Destination)).all()
+
+@app.get("/destinations/{slug}", response_model=DestinationOut)
+def get_destination(slug: str, db: Session = Depends(get_db)):
+    destination = db.scalar(select(Destination).where(Destination.slug == slug))
+    if destination is None:
+        raise HTTPException(status_code=404, detail="Destination not found")
+    return destination
